@@ -13,7 +13,7 @@
 
 支持的hash算法有
 
-```
+```objective-c
 typedef enum : NSUInteger {
     //md2 16字节长度
     CCDIGEST_MD2 = 1000,
@@ -36,7 +36,7 @@ typedef enum : NSUInteger {
 
 调用接口
 
-```
+```objective-c
 /**
     计算数据的hash值，根据不同的算法
  */
@@ -51,7 +51,7 @@ typedef enum : NSUInteger {
 
 调用示例
 
-```
+```objective-c
 //测试哈希函数
 - (void)testKKHASHTools
 {
@@ -100,7 +100,7 @@ typedef enum : NSUInteger {
 
 主要接口
 
-```
+```objective-c
 /**
     AES cbc 模式加密，
     @key 长度16字节，24字节，32字节
@@ -130,7 +130,7 @@ typedef enum : NSUInteger {
 
 调用示例
 
-```
+```objective-c
     NSData *key16 = [@"0123456789123456" dataUsingEncoding:NSUTF8StringEncoding];
     NSData *key24 = [@"012345678901234567891234" dataUsingEncoding:NSUTF8StringEncoding];
     NSData *key32 = [@"01234567890123456789012345678912" dataUsingEncoding:NSUTF8StringEncoding];
@@ -188,7 +188,7 @@ typedef enum : NSUInteger {
 
 支持的填充方式
 
-```
+```objective-c
 //分组加密，支持最大的加密块为 block 和填充方式有关
 typedef enum : NSUInteger {
     //不填充，最大数据块为 blockSize
@@ -202,7 +202,7 @@ typedef enum : NSUInteger {
 
 调用接口
 
-```
+```objective-c
 /**
     公钥加密
  */
@@ -216,7 +216,7 @@ typedef enum : NSUInteger {
 
 调用示例
 
-```
+```objective-c
 //生成RSA密钥对，公钥和私钥，支持的SIZE有
 // sizes for RSA keys are: 512, 768, 1024, 2048.
 - (void)generateRSAKeyPair:(int )keySize
@@ -276,7 +276,7 @@ typedef enum : NSUInteger {
 
 支持的签名算法
 
-```
+```objective-c
 //主要使用PKCS1 方式的填充，最大签名数据长度为blockSize-11
 //签名算法从ios5以后不再支持md5,md2
 typedef enum : NSUInteger {
@@ -290,7 +290,7 @@ typedef enum : NSUInteger {
 
 主要接口
 
-```
+```objective-c
 /**
     根据不同的算法，签名数据，
  */
@@ -304,7 +304,7 @@ typedef enum : NSUInteger {
 
 调用示例
 
-```
+```objective-c
 		//生成RSA密钥对，
     [self generateRSAKeyPair:kRSA_KEY_SIZE];
     
@@ -342,7 +342,7 @@ RSA相关的密钥放在手机上是不安全的，但是也没有绝对的安�
 
 主要接口
 
-```
+```objective-c
 
 /**
     从x509 cer证书中读取公钥
@@ -366,7 +366,7 @@ RSA相关的密钥放在手机上是不安全的，但是也没有绝对的安�
 
 调用示例
 
-```
+```objective-c
     NSString *cerPA = [[NSBundle mainBundle] pathForResource:@"CPPUB.cer" ofType:nil];
     NSString *p12PA = [[NSBundle mainBundle] pathForResource:@"CPPRI.p12" ofType:nil];
     
@@ -408,7 +408,7 @@ RSA相关的密钥放在手机上是不安全的，但是也没有绝对的安�
 
 - 密钥对的生成
 
-```
+```objective-c
 //生成RSA密钥对，公钥和私钥，支持的SIZE有
 // sizes for RSA keys are: 512, 768, 1024, 2048.
 - (void)generateRSAKeyPair:(int )keySize
@@ -431,7 +431,7 @@ RSA相关的密钥放在手机上是不安全的，但是也没有绝对的安�
 
 - RSA上几种填充方式的区别
 
-```
+```objective-c
 /** 三种填充方式区别
  kSecPaddingNone      = 0,   要加密的数据块大小<＝SecKeyGetBlockSize的大小，如这里128
  kSecPaddingPKCS1     = 1,   要加密的数据块大小<=128-11
